@@ -402,7 +402,8 @@
             ///////////////////////////////////////////////////////////////////////
             // 下载结果
             ///////////////////////////////////////////////////////////////////////
-            download('result.txt', JSON.stringify(results));
+            const fileName = `${subjectInfo.name}_result_P.txt`; // 文件名：被试姓名 + result_P
+            download(fileName, JSON.stringify(results));
 
             // 判断按键是否符合
             kb = await jspsycho.waitKB();
