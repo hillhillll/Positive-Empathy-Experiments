@@ -334,13 +334,21 @@
             ///////////////////////////////////////////////////////////////////////
             // 实验开始
             ///////////////////////////////////////////////////////////////////////
+            // 生成从1到32的序列
+            let sequence = [];
+                for (let i = 1; i <= 32; i++) {
+                    sequence.push(i);
+                };
+                // 随机打乱序列
+                sequence = shuffle(sequence);
+                
             for (let i = 0; i < AllFace.length; i++) {
                 // 清空屏幕
                 await jspsycho.flip();
                 await jspsycho.render();
 
                 // 随机选择一张面孔
-                const face = AllFace[randomNumber(0, AllFace.length - 1)];
+                const face = AllFace[sequence[i] - 1]; // 注意：这里的序列是从1开始的，所以需要减去1
                 await dispFace(face);
                 await dispFixationCross();
 
